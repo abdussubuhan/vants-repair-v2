@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VANTS PC Repair — Doorstep Service · Perumbavoor · Aluva · Ernakulam</title>
+  <meta name="description" content="VANTS PC Repair — certified doorstep laptop and desktop repair in Perumbavoor, Aluva, and Ernakulam. Transparent pricing. 30-day warranty. Book via WhatsApp." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='6' fill='%23C9A84C'/><text x='50%25' y='76%25' text-anchor='middle' font-family='Outfit,sans-serif' font-weight='900' font-size='26' fill='black'>V</text></svg>">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════
+     CUSTOM CURSOR
+══════════════════════════════════════╗ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ╔══════════════════════════════════════
+     FULLSCREEN MENU
+══════════════════════════════════════╗ -->
+<div class="fullscreen-menu" id="fullscreenMenu">
+  <nav class="menu-links">
+    <a href="#services" class="menu-link">Services</a>
+    <a href="#pricing" class="menu-link">Pricing</a>
+    <a href="#process" class="menu-link">Process</a>
+    <a href="#areas" class="menu-link">Areas</a>
+    <a href="#reviews" class="menu-link">Reviews</a>
+    <a href="#faq" class="menu-link">FAQ</a>
+    <a href="#booking" class="menu-link">Book Now</a>
+  </nav>
+</div>
+
+<!-- ╔══════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════╗ -->
+<header class="nav" id="mainNav">
+  <a href="#" class="nav-brand">
+    <div class="brand-logo-box">
+      <img src="logo.svg" alt="VANTS" />
+    </div>
+    <span class="brand-wordmark">VANTS</span>
+  </a>
+
+  <nav class="nav-center">
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#process">Process</a>
+    <a href="#areas">Areas</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <div class="nav-right">
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+    <a href="https://wa.me/919495709045?text=Hi%20VANTS%2C%20I%20need%20a%20PC%20repair." target="_blank" class="btn-book-nav">
+      Book Now ↗
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ╔══════════════════════════════════════
+     HERO
+══════════════════════════════════════╗ -->
+<section class="hero" id="home">
+  <canvas class="hero-canvas-bg" id="heroCanvas"></canvas>
+  <div class="hero-bg-text" aria-hidden="true">REPAIR</div>
+
+  <div class="hero-body">
+    <!-- Left: Display headline -->
+    <div>
+      <div class="hero-live" style="margin-bottom: 1.5rem;">
+        <span class="dot"></span>
+        Available Now
+      </div>
+      <h1 class="hero-hl">
+        PC<br />
+        Repair<br />
+        <span class="accent">at your doorstep</span>
+      </h1>
+    </div>
+
+    <!-- Right: Info block -->
+    <div class="hero-info">
+      <div>
+        <p class="hero-sub">
+          Certified technicians come to <strong>your home or office</strong> across Perumbavoor, Aluva, and Ernakulam. Book in minutes, fixed same day.
+        </p>
+      </div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="meta-val">₹389<span style="font-size: 0.7em; font-weight: 400;">+</span></span>
+          <span class="meta-label">Starting Price</span>
+        </div>
+        <div style="width:1px; height: 36px; background: var(--line);"></div>
+        <div class="hero-meta-item">
+          <span class="meta-val">30</span>
+          <span class="meta-label">Day Warranty</span>
+        </div>
+        <div style="width:1px; height: 36px; background: var(--line);"></div>
+        <div class="hero-meta-item">
+          <span class="meta-val" id="heroCountUp" data-target="500">0</span>
+          <span class="meta-label">Repairs Done</span>
+        </div>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="https://wa.me/919495709045?text=Hi%20VANTS%2C%20I%20want%20to%20book%20a%20doorstep%20repair." target="_blank" class="btn btn-wa btn-lg">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+          Book on WhatsApp
+        </a>
+        <a href="#services" class="btn btn-outline btn-lg">Explore Services</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-bottom-stat">Perumbavoor · <span>Primary Zone</span></div>
+    <div class="hero-bottom-stat">Aluva · <span>Primary Zone</span></div>
+    <div class="hero-bottom-stat">Ernakulam · <span>Primary Zone</span></div>
+    <div class="hero-bottom-stat">Response in · <span>5 Minutes</span></div>
+    <div class="hero-bottom-stat">Service · <span>Mon–Sat 9AM–8PM</span></div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════
+     TRUST TICKER
+══════════════════════════════════════╗ -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <div class="ticker-group">
+      <div class="ticker-item">Certified Technicians <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">True Doorstep Service <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">Transparent Pricing <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">30-Day Warranty <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">Same-Day Service <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">Zero Parts Markup <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">WhatsApp Booking <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">5-Minute Response <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">No Fix, No Fee <span class="ticker-sep">◆</span></div>
+    </div>
+    <div class="ticker-group" aria-hidden="true">
+      <div class="ticker-item">Certified Technicians <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">True Doorstep Service <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">Transparent Pricing <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">30-Day Warranty <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">Same-Day Service <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">Zero Parts Markup <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">WhatsApp Booking <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">5-Minute Response <span class="ticker-sep">◆</span></div>
+      <div class="ticker-item">No Fix, No Fee <span class="ticker-sep">◆</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════
+     SERVICES — Bento Grid
+══════════════════════════════════════╗ -->
+<section id="services">
+  <div class="section-pad border-section">
+    <div class="section-label reveal">Our Services</div>
+    <h2 class="display-heading reveal" style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 3rem; transition-delay: 0.08s;">
+      What We Fix
+    </h2>
+  </div>
+
+  <div class="bento">
+    <!-- XL: Laptop Repair -->
+    <div class="bento-cell bento-xl">
+      <div class="bento-num">01 / 07</div>
+      <span class="bento-icon">💻</span>
+      <div class="bento-title">Laptop<br />Repair</div>
+      <p class="bento-desc">Screen cracks, keyboard failures, charging port issues, motherboard faults, overheating — all resolved at your door.</p>
+      <div class="price-tag price-xl" style="margin-top: auto;">
+        <span class="price-from">from </span>
+        <span class="price-val">₹649</span>
+      </div>
+      <span class="price-note">Includes free diagnosis</span>
+    </div>
+
+    <!-- LG: Desktop Repair -->
+    <div class="bento-cell bento-lg" style="position: relative;">
+      <div class="bento-badge">Popular</div>
+      <div class="bento-num">02 / 07</div>
+      <span class="bento-icon">🖥️</span>
+      <div class="bento-title">Desktop<br />PC Repair</div>
+      <p class="bento-desc">Hardware diagnosis, RAM/GPU upgrades, cooling fixes, PSU replacements, and custom PC builds.</p>
+      <div class="price-tag price-xl" style="margin-top: auto;">
+        <span class="price-from">from </span>
+        <span class="price-val">₹519</span>
+      </div>
+      <span class="price-note">Includes free diagnosis</span>
+    </div>
+
+    <!-- Small cells row: 4+4+4 = 12 -->
+    <div class="bento-cell bento-sm">
+      <div class="bento-num">03 / 07</div>
+      <span class="bento-icon">🛡️</span>
+      <div class="bento-title">Virus &amp; Malware Removal</div>
+      <p class="bento-desc">Deep scan, ransomware recovery, spyware removal, and AV setup.</p>
+      <div class="price-tag" style="margin-top: 1rem;">
+        <span class="price-from">flat </span>
+        <span class="price-val">₹649</span>
+      </div>
+    </div>
+
+    <div class="bento-cell bento-sm">
+      <div class="bento-num">04 / 07</div>
+      <span class="bento-icon">💾</span>
+      <div class="bento-title">Data Recovery</div>
+      <p class="bento-desc">Crashed HDDs, formatted drives, corrupted SSDs.</p>
+      <div class="price-tag" style="margin-top: 1rem;">
+        <span class="price-from">from </span>
+        <span class="price-val">₹1,299</span>
+      </div>
+      <span class="price-note">Pay only if recovered</span>
+    </div>
+
+    <div class="bento-cell bento-sm">
+      <div class="bento-num">05 / 07</div>
+      <span class="bento-icon">🖱️</span>
+      <div class="bento-title">OS Installation</div>
+      <p class="bento-desc">Windows 10/11 or Linux, all drivers, performance tuning.</p>
+      <div class="price-tag" style="margin-top: 1rem;">
+        <span class="price-from">flat </span>
+        <span class="price-val">₹719</span>
+      </div>
+    </div>
+
+    <div class="bento-cell bento-sm">
+      <div class="bento-num">06 / 07</div>
+      <span class="bento-icon">📡</span>
+      <div class="bento-title">Networking &amp; WiFi</div>
+      <p class="bento-desc">Router config, LAN setup, WiFi troubleshooting.</p>
+      <div class="price-tag" style="margin-top: 1rem;">
+        <span class="price-from">from </span>
+        <span class="price-val">₹449</span>
+      </div>
+    </div>
+
+  <!-- Wide: Custom PC -->
+    <div class="bento-cell bento-full" style="background: rgba(201,168,76,0.04); border-top: 1px solid var(--line-gold);">
+      <div style="display: flex; align-items: flex-start; gap: 2.5rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 260px;">
+          <div class="bento-num">07 / 07</div>
+          <span class="bento-icon">🔧</span>
+          <div class="bento-title">Custom PC Assembly</div>
+          <p class="bento-desc">Got the parts? We assemble your custom build at your location — correctly, tested, and ready to use.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: flex-end; gap: 0.5rem; flex-shrink: 0;">
+          <div class="price-tag price-xl">
+            <span class="price-from">flat </span>
+            <span class="price-val">₹1,299</span>
+          </div>
+          <span class="price-note">Labour only · Parts not included · Zero markup</span>
+          <a href="https://wa.me/919495709045?text=Hi%20VANTS%2C%20I%20need%20custom%20PC%20assembly%20service." target="_blank" class="btn btn-gold" style="margin-top: 0.5rem;">Book This Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════
+     PRICING — Typographic list
+══════════════════════════════════════╗ -->
+<section id="pricing">
+  <div class="section-pad border-section">
+    <div class="section-label reveal">Rate Card</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+      <div>
+        <h2 class="display-heading reveal" style="font-size: clamp(2.5rem, 5vw, 4.5rem);" data-delay="0.08">Transparent<br /><span class="text-gold">Pricing</span></h2>
+        <div class="bold-rule reveal"></div>
+        <p class="reveal" style="font-size: 0.9rem; color: var(--white-3); line-height: 1.85; max-width: 360px; transition-delay: 0.15s;">
+          All prices are <strong style="color: var(--white);">labour charges only.</strong> Parts sourced at actual market cost with zero markup — quoted before ordering, always.
+        </p>
+        <div style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--line-gold); background: rgba(201,168,76,0.03);" class="reveal">
+          <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); margin-bottom: 0.5rem;">Note</div>
+          <p style="font-size: 0.84rem; color: var(--white-3); line-height: 1.75;">No fix = no charge. For data recovery, you pay only when data is successfully retrieved.</p>
+        </div>
+        <div style="margin-top: 2rem;" class="reveal">
+          <a href="https://wa.me/919495709045?text=Hi%20VANTS%2C%20give%20me%20a%20quote." target="_blank" class="btn btn-gold">Get a Free Quote</a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="price-list">
+          <div class="price-list-item">
+            <div class="pli-num">01</div>
+            <div class="pli-info">
+              <div class="pli-name">Laptop General Repair</div>
+              <div class="pli-desc">Diagnosis + labour, parts extra</div>
+            </div>
+            <div class="pli-price">
+              <span class="pli-amount">₹649 – ₹1,949</span>
+              <span class="pli-time">1 – 2 hrs</span>
+            </div>
+          </div>
+          <div class="price-list-item">
+            <div class="pli-num">02</div>
+            <div class="pli-info">
+              <div class="pli-name">Desktop PC Repair</div>
+              <div class="pli-desc">Hardware diagnosis + fix</div>
+            </div>
+            <div class="pli-price">
+              <span class="pli-amount">₹519 – ₹2,599</span>
+              <span class="pli-time">1 – 3 hrs</span>
+            </div>
+          </div>
+          <div class="price-list-item">
+            <div class="pli-num">03</div>
+            <div class="pli-info">
+              <div class="pli-name">Screen Replacement</div>
+              <div class="pli-desc">Labour only (screen cost extra)</div>
+            </div>
+            <div class="pli-price">
+              <span class="pli-amount">₹399</span>
+              <span class="pli-time">~1 hr</span>
+            </div>
+          </div>
+          <div class="price-list-item">
+            <div class="pli-num">04</div>
+            <div class="pli-info">
+              <div class="pli-name">Battery Replacement</div>
+              <div class="pli-desc">Labour only (battery cost extra)</div>
+            </div>
+            <div class="pli-price">
+              <span class="pli-amount">₹299</span>
+              <span class="pli-time">30 – 45 min</span>
+            </div>
+          </div>
+          <div class="price-list-item">
+            <div class="pli-num">05</div>
+            <div class="pli-info">
+              <div class="pli-name">Virus &amp; Malware Removal</div>
+              <div class="pli-desc">Full deep clean + AV installation</div>
+            </div>
+            <div class="pli-price">
+              <span class="pli-amount">₹649</span>
+              <span class="pli-time">1 – 2 hrs</span>
+            </div>
+          </div>
+          <div class="price-list-item">
+            <div class="pli-num">06</div>
+            <div class="pli-info">
+              <div class="pli-name">Data Recovery</div>
+              <div class="pli-desc">Logical / physical — pay on success</div>
+            </div>
+            <div class="pli-price">
+              <span class="pli-amount">₹1,299 – ₹6,499</span>
+              <span class="pli-time">2 – 48 hrs</span>
+            </div>
+          </div>
+          <div class="price-list-item">
+            <div class="pli-num">07</div>
+            <div class="pli-info">
+              <div class="pli-name">OS Installation</div>
+              <div class="pli-desc">Windows 10/11 or Linux + drivers</div>
+            </div>
+            <div class="pli-price">
+              <span class="pli-amount">₹719</span>
+              <span class="pli-time">1 – 2 hrs</span>
+            </div>
+          </div>
+          <div class="price-list-item">
+            <div class="pli-num">08</div>
+            <div class="pli-info">
+              <div class="pli-name">Networking / WiFi Setup</div>
+              <div class="pli-desc">Router, LAN, connectivity</div>
+            </div>
+            <div class="pli-price">
+              <span class="pli-amount">₹449 – ₹1,299</span>
+              <span class="pli-time">30 – 90 min</span>
+            </div>
+          </div>
+          <div class="price-list-item">
+            <div class="pli-num">09</div>
+            <div class="pli-info">
+              <div class="pli-name">PC Speed Optimization</div>
+              <div class="pli-desc">Clean, tune, startup optimization</div>
+            </div>
+            <div class="pli-price">
+              <span class="pli-amount">₹389</span>
+              <span class="pli-time">~1 hr</span>
+            </div>
+          </div>
+          <div class="price-list-item" style="background: rgba(201,168,76,0.03);">
+            <div class="pli-num" style="color: var(--gold);">10</div>
+            <div class="pli-info">
+              <div class="pli-name" style="color: var(--gold);">Custom PC Assembly</div>
+              <div class="pli-desc">Labour only — your parts, zero markup</div>
+            </div>
+            <div class="pli-price">
+              <span class="pli-amount">₹1,299</span>
+              <span class="pli-time">2 – 3 hrs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════╗ -->
+<section id="process" class="border-section">
+  <div class="section-pad">
+    <div class="section-label reveal">The Process</div>
+    <h2 class="display-heading reveal" style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 3.5rem; transition-delay: 0.08s;">How It Works</h2>
+
+    <div class="process-list">
+      <div class="process-step reveal">
+        <div class="step-num-big">01</div>
+        <div class="step-content">
+          <div class="step-title">Message on WhatsApp</div>
+          <p class="step-body">Describe your issue, device type, and preferred time slot. We confirm your booking in under 5 minutes — no forms, no sign-up, no waiting.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num-big">02</div>
+        <div class="step-content">
+          <div class="step-title">Technician Comes to You</div>
+          <p class="step-body">A certified technician arrives at your home or office at the agreed time. We cover Perumbavoor, Aluva, Ernakulam and surrounding areas.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num-big">03</div>
+        <div class="step-content">
+          <div class="step-title">Fixed. Review. Pay.</div>
+          <p class="step-body">Repair is done on-site. You review the work thoroughly — then and only then do you pay. No fix means zero charge. Every repair comes with a 30-day service warranty.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workshop note -->
+    <div style="margin-top: 3rem; padding: 2rem 2.5rem; border: 1px solid var(--line-gold); background: rgba(201,168,76,0.03); display: flex; gap: 1.5rem; align-items: flex-start;" class="reveal">
+      <div style="font-size: 1.5rem; flex-shrink: 0;">🔬</div>
+      <div>
+        <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); margin-bottom: 0.5rem;">Workshop Option</div>
+        <p style="font-size: 0.9rem; color: var(--white-3); line-height: 1.8;">Some repairs (soldering, component-level board work) require workshop equipment. In these cases, we transport your device to our shop and deliver it back when complete — keeping you updated via WhatsApp throughout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════
+     WHY VANTS — 6 Pillars
+══════════════════════════════════════╗ -->
+<section id="why" class="border-section">
+  <div style="padding: 5rem 3rem 3rem;">
+    <div class="section-label reveal">Why Choose Us</div>
+    <h2 class="display-heading reveal" style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 3rem; transition-delay: 0.08s;">The VANTS<br />Advantage</h2>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar reveal">
+      <span class="pillar-icon">🎓</span>
+      <div class="pillar-title">Certified Technicians</div>
+      <p class="pillar-body">Every repair is handled by a trained, experienced technician — not a trainee. Reliable expertise, every time.</p>
+    </div>
+    <div class="pillar reveal" style="transition-delay: 0.07s;">
+      <span class="pillar-icon">🏠</span>
+      <div class="pillar-title">True Doorstep</div>
+      <p class="pillar-body">We come to you. No dropping off at shops, no waiting days. Your device gets fixed where you are.</p>
+    </div>
+    <div class="pillar reveal" style="transition-delay: 0.14s;">
+      <span class="pillar-icon">💰</span>
+      <div class="pillar-title">Quote First, Pay After</div>
+      <p class="pillar-body">You always receive a full cost estimate before we start. No surprise bills, ever. Pay only when 100% satisfied.</p>
+    </div>
+    <div class="pillar reveal" style="transition-delay: 0.21s;">
+      <span class="pillar-icon">⚡</span>
+      <div class="pillar-title">Same-Day Service</div>
+      <p class="pillar-body">Most repairs are completed in a single on-site visit. Same-day slots available for urgent cases.</p>
+    </div>
+    <div class="pillar reveal" style="transition-delay: 0.28s;">
+      <span class="pillar-icon">🛡️</span>
+      <div class="pillar-title">30-Day Warranty</div>
+      <p class="pillar-body">All repair work is backed by our 30-day service warranty. Same issue comes back? We fix it again, at no charge.</p>
+    </div>
+    <div class="pillar reveal" style="transition-delay: 0.35s;">
+      <span class="pillar-icon">🔩</span>
+      <div class="pillar-title">Zero Parts Markup</div>
+      <p class="pillar-body">Any parts needed are sourced at actual market price with zero markup. We profit from labour — not from parts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════
+     SERVICE AREAS
+══════════════════════════════════════╗ -->
+<section id="areas" class="border-section">
+  <div style="padding: 5rem 3rem 3rem;">
+    <div class="section-label reveal">Coverage</div>
+    <h2 class="display-heading reveal" style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 1rem; transition-delay: 0.08s;">Service Areas</h2>
+    <p class="reveal" style="font-size: 0.9rem; color: var(--white-3); max-width: 480px; line-height: 1.8; margin-bottom: 3rem; transition-delay: 0.16s;">We operate across <strong style="color: var(--white);">Ernakulam District</strong> with fast-response technicians based locally in each zone.</p>
+  </div>
+  <div class="areas-grid">
+    <div class="area-tile reveal">
+      <div class="area-tile-name">Perumbavoor</div>
+      <div class="area-tile-desc">Full coverage including all surrounding localities</div>
+      <div class="area-chips">
+        <span class="chip">Primary Zone</span>
+        <span class="chip">Fast Response</span>
+      </div>
+    </div>
+    <div class="area-tile reveal" style="transition-delay: 0.08s;">
+      <div class="area-tile-name">Aluva</div>
+      <div class="area-tile-desc">Aluva town and all nearby residential areas</div>
+      <div class="area-chips">
+        <span class="chip">Primary Zone</span>
+        <span class="chip">Fast Response</span>
+      </div>
+    </div>
+    <div class="area-tile reveal" style="transition-delay: 0.16s;">
+      <div class="area-tile-name">Ernakulam</div>
+      <div class="area-tile-desc">Kochi city, Kakkanad, Angamaly, Kalady, Piravom, Kothamangalam, North Paravur</div>
+      <div class="area-chips">
+        <span class="chip">Primary Zone</span>
+        <span class="chip">Fast Response</span>
+      </div>
+    </div>
+  </div>
+  <div style="padding: 2rem 3rem; border-top: 1px solid var(--line);">
+    <p style="font-size: 0.84rem; color: var(--white-4);">Not in these areas? <a href="https://wa.me/919495709045?text=Hi%2C%20I'm%20outside%20your%20service%20area." target="_blank" style="color: var(--gold); font-weight: 600;">Message us</a> — we may still be able to help.</p>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════
+     REVIEWS
+══════════════════════════════════════╗ -->
+<section id="reviews" class="border-section">
+  <div style="padding: 5rem 3rem 3rem;">
+    <div class="section-label reveal">Customer Stories</div>
+    <h2 class="display-heading reveal" style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 1rem; transition-delay: 0.08s;">What People Say</h2>
+    <p class="reveal" style="font-size: 0.9rem; color: var(--white-3); max-width: 440px; line-height: 1.8; margin-bottom: 3rem; transition-delay: 0.16s;">Building trust one repair at a time.</p>
+  </div>
+
+  <div class="reviews-editorial reveal">
+    <div class="review-ed">
+      <span class="review-stars-ed">★ ★ ★ ★ ★</span>
+      <p class="review-quote">"Screen cracked and I was stressed about losing work. VANTS technician arrived within 2 hours and fixed everything on-site. Incredible service."</p>
+      <div class="review-author-ed">
+        <div class="review-initials">RM</div>
+        <div>
+          <div class="review-name-ed">Rahul Menon</div>
+          <div class="review-loc">Perumbavoor <span class="verified-mark">✓ Verified</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="review-divider"></div>
+    <div class="review-ed">
+      <span class="review-stars-ed">★ ★ ★ ★ ★</span>
+      <p class="review-quote">"Called at 11AM, tech at my home by 1PM. Virus removal was done in under 2 hours. My laptop went from barely usable to lightning fast. Highly recommended."</p>
+      <div class="review-author-ed">
+        <div class="review-initials">PN</div>
+        <div>
+          <div class="review-name-ed">Priya Nair</div>
+          <div class="review-loc">Aluva <span class="verified-mark">✓ Verified</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="review-divider"></div>
+    <div class="review-ed">
+      <span class="review-stars-ed">★ ★ ★ ★ ★</span>
+      <p class="review-quote">"Critical project files on a dead hard drive. They were honest about the chances — and only charged when data was successfully recovered. Saved my job."</p>
+      <div class="review-author-ed">
+        <div class="review-initials">AK</div>
+        <div>
+          <div class="review-name-ed">Arjun Kumar</div>
+          <div class="review-loc">Ernakulam <span class="verified-mark">✓ Verified</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-editorial review-row-2 reveal" style="border-top: 1px solid var(--line);">
+    <div class="review-ed">
+      <span class="review-stars-ed">★ ★ ★ ★ ★</span>
+      <p class="review-quote">"Battery replaced in 30 flat minutes. Quoted before starting, final price matched exactly. No drama, no upselling. 10/10."</p>
+      <div class="review-author-ed">
+        <div class="review-initials">SG</div>
+        <div>
+          <div class="review-name-ed">Sunita George</div>
+          <div class="review-loc">Kakkanad <span class="verified-mark">✓ Verified</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="review-divider"></div>
+    <div class="review-ed">
+      <span class="review-stars-ed">★ ★ ★ ★ ★</span>
+      <p class="review-quote">"Office network setup for 4 PCs done perfectly. WiFi now reaches every room. Very fair pricing for the level of work put in."</p>
+      <div class="review-author-ed">
+        <div class="review-initials">MS</div>
+        <div>
+          <div class="review-name-ed">Mohammed Shafeer</div>
+          <div class="review-loc">Angamaly <span class="verified-mark">✓ Verified</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="review-divider"></div>
+    <div class="review-ed">
+      <span class="review-stars-ed">★ ★ ★ ★ ★</span>
+      <p class="review-quote">"Fresh Windows 11 install, all drivers set up, bloatware gone. My 5-year old desktop feels new again. Worth every rupee."</p>
+      <div class="review-author-ed">
+        <div class="review-initials">DT</div>
+        <div>
+          <div class="review-name-ed">Deepa Thomas</div>
+          <div class="review-loc">Kalady <span class="verified-mark">✓ Verified</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════
+     FAQ
+══════════════════════════════════════╗ -->
+<section id="faq" class="border-section">
+  <div class="section-pad">
+    <div class="section-label reveal">FAQ</div>
+    <h2 class="display-heading reveal" style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 3.5rem; transition-delay: 0.08s;">Common Questions</h2>
+
+    <div class="faq-list reveal">
+      <div class="faq-item" id="faq1">
+        <button class="faq-q" onclick="toggleFaq('faq1')">
+          <span class="faq-q-num">01</span>
+          <span class="faq-q-text">How do I book a doorstep repair?</span>
+          <span class="faq-q-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Send a WhatsApp message to <strong>+91 9495709045</strong> with your device type, issue, and preferred time. We confirm in under 5 minutes. You can also use the booking form below — it auto-opens WhatsApp with your details pre-filled.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="faq2">
+        <button class="faq-q" onclick="toggleFaq('faq2')">
+          <span class="faq-q-num">02</span>
+          <span class="faq-q-text">Do you charge if you can't fix the issue?</span>
+          <span class="faq-q-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No — if we're unable to resolve the issue, there is no service charge. For data recovery specifically, you pay only if your data is successfully retrieved. We always quote upfront so there are never any surprises.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="faq3">
+        <button class="faq-q" onclick="toggleFaq('faq3')">
+          <span class="faq-q-num">03</span>
+          <span class="faq-q-text">Are spare parts included in the price?</span>
+          <span class="faq-q-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No — all listed prices are <strong>labour charges only.</strong> If your repair requires parts (screen, battery, keyboard, RAM, etc.), they are sourced at actual market price with <strong>zero markup.</strong> You'll receive a full quote before we order anything.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="faq4">
+        <button class="faq-q" onclick="toggleFaq('faq4')">
+          <span class="faq-q-num">04</span>
+          <span class="faq-q-text">What areas do you serve?</span>
+          <span class="faq-q-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We serve <strong>Perumbavoor, Aluva, and Ernakulam</strong> as our primary zones — including Kakkanad, Angamaly, Kalady, Piravom, Kothamangalam, and North Paravur. Outside these areas? Message us and we'll see if we can accommodate your location.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="faq5">
+        <button class="faq-q" onclick="toggleFaq('faq5')">
+          <span class="faq-q-num">05</span>
+          <span class="faq-q-text">How long does a typical repair take?</span>
+          <span class="faq-q-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Most repairs — OS installation, virus removal, battery/screen replacement, hardware diagnostics — are completed in <strong>1–3 hours on-site.</strong> Data recovery and board-level repairs may take longer and could require a workshop visit.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="faq6">
+        <button class="faq-q" onclick="toggleFaq('faq6')">
+          <span class="faq-q-num">06</span>
+          <span class="faq-q-text">What payments do you accept?</span>
+          <span class="faq-q-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We accept <strong>Cash, UPI (GPay, PhonePe, Paytm),</strong> and bank transfers. Payment is collected <em>after</em> the repair is complete and you're satisfied — never upfront.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="faq7">
+        <button class="faq-q" onclick="toggleFaq('faq7')">
+          <span class="faq-q-num">07</span>
+          <span class="faq-q-text">What does the 30-day warranty cover?</span>
+          <span class="faq-q-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">If the <em>same issue</em> recurs within 30 days of our service, we fix it again at no additional charge. This covers our labour — not new damage, unrelated faults, or wear-and-tear post-repair.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════
+     BOOKING — Split Screen
+══════════════════════════════════════╗ -->
+<section id="booking" class="border-section">
+  <div class="booking-split">
+
+    <!-- Left info -->
+    <div class="booking-left">
+      <div>
+        <div class="section-label" style="margin-bottom: 1rem;">Book a Repair</div>
+        <h2 class="booking-h">
+          Schedule<br />Your<br /><em>Repair</em>
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--white-3); line-height: 1.8; max-width: 360px;">Fill the form and we'll confirm your slot via WhatsApp within minutes. A certified technician arrives at your chosen time.</p>
+      </div>
+
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="ci-icon">📱</div>
+          <div>
+            <div class="ci-label">WhatsApp</div>
+            <div class="ci-val">+91 9495709045</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">⏰</div>
+          <div>
+            <div class="ci-label">Working Hours</div>
+            <div class="ci-val">Monday – Saturday · 9AM – 8PM</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div>
+            <div class="ci-label">Service Areas</div>
+            <div class="ci-val">Perumbavoor · Aluva · Ernakulam</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🛡️</div>
+          <div>
+            <div class="ci-label">Warranty</div>
+            <div class="ci-val">30-Day Service Guarantee</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://wa.me/919495709045?text=Hi%20VANTS%2C%20I%20need%20a%20repair." target="_blank" class="btn btn-wa btn-lg" style="align-self: flex-start;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+        Skip form — Chat Now
+      </a>
+    </div>
+
+    <!-- Right form -->
+    <div class="booking-right">
+      <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 0.35rem; letter-spacing: -0.02em;">Request a Service</h3>
+      <p style="font-size: 0.84rem; color: var(--white-3); margin-bottom: 2rem;">We'll confirm your booking via WhatsApp within minutes.</p>
+
+      <form id="bookingForm" novalidate>
+        <div class="form-row">
+          <div class="fg">
+            <label for="clientName">Full Name *</label>
+            <input type="text" id="clientName" placeholder="Your name" required />
+          </div>
+          <div class="fg">
+            <label for="clientPhone">WhatsApp Number *</label>
+            <input type="tel" id="clientPhone" placeholder="+91 XXXXX XXXXX" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label for="deviceType">Device Type *</label>
+            <select id="deviceType" required>
+              <option value="" disabled selected>Select device</option>
+              <option>Laptop</option>
+              <option>Desktop PC</option>
+              <option>All-in-One PC</option>
+              <option>MacBook / Mac</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="preferredTime">Preferred Time *</label>
+            <select id="preferredTime" required>
+              <option value="" disabled selected>Choose slot</option>
+              <option>Morning (9AM – 12PM)</option>
+              <option>Afternoon (12PM – 4PM)</option>
+              <option>Evening (4PM – 8PM)</option>
+              <option>Flexible / Any time</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="fg">
+            <label for="location">Your Area / Address *</label>
+            <input type="text" id="location" placeholder="e.g. Perumbavoor, Aluva, Kakkanad..." required />
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="fg">
+            <label for="issueDesc">Describe the Issue *</label>
+            <textarea id="issueDesc" placeholder="e.g. Laptop won't turn on, screen cracked, extremely slow..." required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-gold btn-lg" id="submitBtn" style="width: 100%; justify-content: center; border-radius: 2px; font-size: 0.9rem;">
+          Confirm Booking via WhatsApp →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════╗ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-big">VANTS</div>
+      <p class="footer-tagline">Certified doorstep PC repair in Perumbavoor, Aluva, and Ernakulam. Transparent, fast, and guaranteed.</p>
+      <div class="footer-social-row">
+        <a href="https://wa.me/919495709045" target="_blank" class="social-btn" title="WhatsApp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+        </a>
+        <a href="#" class="social-btn" title="Instagram">Ig</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <div class="footer-links">
+        <a href="#services">Laptop Repair</a>
+        <a href="#services">Desktop Repair</a>
+        <a href="#services">Virus Removal</a>
+        <a href="#services">Data Recovery</a>
+        <a href="#services">OS Installation</a>
+        <a href="#services">Networking</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <a href="#why">Why VANTS</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#process">How It Works</a>
+        <a href="#areas">Service Areas</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="admin.html">Admin Login</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-links">
+        <a href="https://wa.me/919495709045" target="_blank" style="color: #25D366;">+91 9495709045</a>
+        <span style="color: var(--white-4); font-size: 0.84rem;">Mon – Sat · 9AM – 8PM</span>
+        <span style="color: var(--white-4); font-size: 0.84rem;">Perumbavoor · Aluva · Ernakulam</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 VANTS PC Repair Service. All rights reserved.</span>
+    <span>Made with ❤️ for Ernakulam District</span>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<div class="wa-fab">
+  <div class="wa-fab-tip">Book a repair now</div>
+  <a href="https://wa.me/919495709045?text=Hi%20VANTS%2C%20I%20need%20a%20PC%20repair." target="_blank" class="wa-fab-btn" aria-label="WhatsApp VANTS">
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+  </a>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span id="toastIcon">✅</span>
+  <span id="toastMsg">Done!</span>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

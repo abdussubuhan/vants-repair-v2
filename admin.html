@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VANTS Admin V2 — Booking Dashboard</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       LOGIN PAGE
+  ═══════════════════════════════════════ -->
+  <div class="admin-login-page" id="loginPage">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="logo-badge">🔐</div>
+        <h1>VANTS Admin</h1>
+        <p>Secure Booking Dashboard V2</p>
+      </div>
+
+      <div class="login-error" id="loginError">
+        ❌ Incorrect password. Please try again.
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <label for="adminPassword">Admin Password</label>
+          <input type="password" id="adminPassword" placeholder="Enter admin password" required autocomplete="current-password" />
+        </div>
+        <button type="submit" class="btn btn-gold btn-lg" style="width: 100%; justify-content: center; border-radius: var(--radius-md);">
+          🔓 Login to Dashboard
+        </button>
+      </form>
+
+      <div style="margin-top: 1.5rem; text-align: center;">
+        <a href="index.html" style="font-size: 0.84rem; color: var(--text-3); transition: color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--text-3)'">
+          ← Back to VANTS Website
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       ADMIN DASHBOARD
+  ═══════════════════════════════════════ -->
+  <div class="admin-page" id="adminPage">
+
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">☰</button>
+
+    <div class="admin-layout">
+
+      <!-- ── Sidebar ── -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+          <div class="logo-icon">💻</div>
+          <div>
+            <span class="logo-text">VANTS</span>
+            <span class="logo-sub">Admin Panel V2</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section-label">Overview</div>
+          <button class="sidebar-link active" data-section="bookings">
+            <span class="link-icon">📋</span>
+            <span>All Bookings</span>
+            <span class="link-badge" id="sidebarBadge">0</span>
+          </button>
+          <button class="sidebar-link" data-section="today">
+            <span class="link-icon">📅</span>
+            <span>Today's Bookings</span>
+          </button>
+          <button class="sidebar-link" data-section="pending">
+            <span class="link-icon">⏳</span>
+            <span>Pending</span>
+          </button>
+          <button class="sidebar-link" data-section="completed">
+            <span class="link-icon">✅</span>
+            <span>Completed</span>
+          </button>
+
+          <div class="nav-section-label">Tools</div>
+          <button class="sidebar-link" onclick="exportCSV()">
+            <span class="link-icon">📥</span>
+            <span>Export to CSV</span>
+          </button>
+          <button class="sidebar-link" onclick="clearAllData()">
+            <span class="link-icon">🗑️</span>
+            <span>Clear All Data</span>
+          </button>
+
+          <div class="nav-section-label">Site</div>
+          <button class="sidebar-link" onclick="window.open('index.html','_blank')">
+            <span class="link-icon">🌐</span>
+            <span>View Website</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-user">
+            <div class="user-avatar">VA</div>
+            <div class="user-info">
+              <div class="user-name">VANTS Admin</div>
+              <div class="user-role">Administrator</div>
+            </div>
+            <button class="logout-btn" id="logoutBtn" title="Logout">🚪</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ── Main Content ── -->
+      <main class="admin-main">
+
+        <!-- Topbar -->
+        <div class="admin-topbar">
+          <div>
+            <div class="topbar-title" id="topbarTitle">All Bookings</div>
+            <div class="topbar-subtitle" id="topbarSubtitle">Manage and track all client repair requests</div>
+          </div>
+          <div class="topbar-actions">
+            <button class="theme-toggle" id="adminThemeToggle" aria-label="Toggle theme" title="Toggle dark/light">🌙</button>
+            <button class="btn btn-gold btn-sm" onclick="addSampleData()" style="border-radius: var(--radius-sm);">
+              ➕ Add Sample Data
+            </button>
+          </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="admin-content">
+
+          <!-- Stats -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-header">
+                <div class="stat-label-small">Total Bookings</div>
+                <div class="stat-icon-badge" style="background: rgba(245,158,11,0.08);">📋</div>
+              </div>
+              <div class="stat-value" id="statTotal">0</div>
+              <div class="stat-change neutral">All time</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-header">
+                <div class="stat-label-small">Today</div>
+                <div class="stat-icon-badge" style="background: rgba(59,130,246,0.08);">📅</div>
+              </div>
+              <div class="stat-value" id="statToday">0</div>
+              <div class="stat-change neutral">New requests</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-header">
+                <div class="stat-label-small">Pending</div>
+                <div class="stat-icon-badge" style="background: rgba(251,191,36,0.08);">⏳</div>
+              </div>
+              <div class="stat-value" id="statPending">0</div>
+              <div class="stat-change neutral">Awaiting action</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-header">
+                <div class="stat-label-small">Completed</div>
+                <div class="stat-icon-badge" style="background: rgba(74,222,128,0.08);">✅</div>
+              </div>
+              <div class="stat-value" id="statCompleted">0</div>
+              <div class="stat-change up">↑ Repaired</div>
+            </div>
+          </div>
+
+          <!-- Bookings Panel -->
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title" id="panelTitle">All Bookings</div>
+                <div class="panel-count" id="panelCount">Loading...</div>
+              </div>
+              <div class="panel-controls">
+                <div class="search-input-wrap">
+                  <span class="search-icon">🔍</span>
+                  <input type="text" id="searchInput" placeholder="Search name or phone..." oninput="applyFilters()" />
+                </div>
+                <select class="filter-select" id="statusFilter" onchange="applyFilters()">
+                  <option value="">All Status</option>
+                  <option value="pending">Pending</option>
+                  <option value="inprogress">In Progress</option>
+                  <option value="completed">Completed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+                <select class="filter-select" id="deviceFilter" onchange="applyFilters()">
+                  <option value="">All Devices</option>
+                  <option value="Laptop">Laptop</option>
+                  <option value="Desktop PC">Desktop PC</option>
+                  <option value="All-in-One PC">All-in-One PC</option>
+                  <option value="MacBook / Mac">MacBook</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table id="bookingsTable">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Client Name</th>
+                    <th>Phone</th>
+                    <th>Device</th>
+                    <th>Issue</th>
+                    <th>Slot</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="bookingsBody"></tbody>
+              </table>
+              <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">📭</div>
+                <h3>No bookings found</h3>
+                <p>Bookings submitted via the website will appear here.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       BOOKING DETAIL MODAL
+  ═══════════════════════════════════════ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Booking Details</h2>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-field"><label>Client Name</label><div class="field-val" id="mName">—</div></div>
+        <div class="modal-field"><label>Phone / WhatsApp</label><div class="field-val" id="mPhone">—</div></div>
+      </div>
+      <div class="modal-row">
+        <div class="modal-field"><label>Device Type</label><div class="field-val" id="mDevice">—</div></div>
+        <div class="modal-field"><label>Preferred Slot</label><div class="field-val" id="mSlot">—</div></div>
+      </div>
+      <div class="modal-field" style="margin-bottom: 1rem;"><label>Address / Location</label><div class="field-val" id="mLocation">—</div></div>
+      <div class="modal-field" style="margin-bottom: 1rem;"><label>Issue Description</label><div class="field-val" id="mIssue" style="white-space: pre-wrap; line-height: 1.6;">—</div></div>
+      <div class="modal-row">
+        <div class="modal-field"><label>Booking Date</label><div class="field-val" id="mDate">—</div></div>
+        <div class="modal-field"><label>Current Status</label><div class="field-val" id="mStatus">—</div></div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-whatsapp btn-sm" id="mWhatsApp">📱 WhatsApp Client</button>
+        <select class="filter-select" id="mStatusSelect" style="flex: 1;">
+          <option value="pending">⏳ Pending</option>
+          <option value="inprogress">🔧 In Progress</option>
+          <option value="completed">✅ Completed</option>
+          <option value="cancelled">❌ Cancelled</option>
+        </select>
+        <button class="btn btn-gold btn-sm" id="mUpdateStatus" style="border-radius: var(--radius-sm);">Update Status</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Toast -->
+  <div class="toast" id="adminToast">
+    <span class="toast-icon" id="adminToastIcon">✅</span>
+    <span id="adminToastMsg">Action completed</span>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

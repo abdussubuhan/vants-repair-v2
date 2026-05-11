@@ -1,0 +1,19 @@
+{
+  "name": "VANTS PC Repair",
+  "short_name": "VANTS",
+  "description": "Doorstep laptop and desktop repair in Perumbavoor, Aluva, and Ernakulam.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

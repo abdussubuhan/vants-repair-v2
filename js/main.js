@@ -394,11 +394,46 @@ document.querySelectorAll('.bento-cell').forEach(cell => {
   });
 });
 
-// ═══════════════════════════════════════
-// PRICE LIST HOVER INDICATOR
-// ═══════════════════════════════════════
-document.querySelectorAll('.price-list-item').forEach(item => {
-  item.addEventListener('mouseenter', () => {
-    item.style.transition = 'all 0.2s ease';
-  });
-});
+ // ═══════════════════════════════════════
+ // ANIME.JS ENTRY ANIMATIONS
+ // ═══════════════════════════════════════
+ // Hero headline animation
+ anime({
+   targets: '.hero-hl',
+   translateY: [-50, 0],
+   opacity: [0, 1],
+   duration: 1200,
+   easing: 'easeOutExpo'
+ });
+ // Hero CTA buttons animation
+ anime({
+   targets: '.hero-ctas .btn',
+   translateY: [20, 0],
+   opacity: [0, 1],
+   delay: anime.stagger(100, { start: 300 }),
+   duration: 800,
+   easing: 'easeOutExpo'
+ });
+ // BENTO cells scroll reveal animation
+ const bentoObserver = new IntersectionObserver((entries) => {
+   entries.forEach(entry => {
+     if (entry.isIntersecting) {
+       anime({
+         targets: entry.target,
+         translateY: [20, 0],
+         opacity: [0, 1],
+         duration: 800,
+         easing: 'easeOutExpo'
+       });
+       bentoObserver.unobserve(entry.target);
+     }
+   });
+ }, { threshold: 0.1 });
+ document.querySelectorAll('.bento-cell').forEach(cell => {
+   cell.style.opacity = 0;
+   bentoObserver.observe(cell);
+ });
+ // Existing price list hover indicator
+ document.querySelectorAll('.price-list-item').forEach(item => {
+   item.addEventListener('mouseenter', () => item.style.transition = 'all 0.2s ease');
+ });
